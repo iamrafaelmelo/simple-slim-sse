@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Atualizações</title>
+    </head>
+    <body class="flex flex-col items-center justify-center min-h-screen bg-slate-50 gap-y-8">
+
+        <header>
+            <h1 class="text-lg font-bold text-slate-900">
+                Stock market in realtime
+            </h1>
+        </header>
+        <main class="max-w-lg w-full bg-white border-x border-t border-slate-300 rounded-lg shadow">
+            <div class="py-0.5 flex flex-col divide-y divide-slate-200" id="stocks"></div>
+        </main>
+
+        <script src="/assets/js/app.js"></script>
+        <script src="/assets/js/sse.js"></script>
+    </body>
+</html>

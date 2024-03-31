@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+    image: php:8.2-fpm-alpine
+    container_name: server-side-events-app
+    working_dir: /opt/www
+    volumes:
+      - .:/opt/www
+    ports:
+      - "9000:9000"
+    # depends_on:
+    #   - db
+
+  web:
+    image: nginx:latest
+    container_name: server-side-events-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - .:/opt/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+  # db:
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: app
+  #     MYSQL_USER: app
+  #     MYSQL_PASSWORD: app
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - ./db:/var/lib/mysql
